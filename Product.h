@@ -6,9 +6,10 @@
 #include<set>
 using namespace std;
 
-struct product_Node
+class product_Node
 {
-
+public:
+	product_Node();
 	int Product_ID;
 	double Product_Price;
 	string Product_Name;
@@ -16,7 +17,7 @@ struct product_Node
 	int Seller_Id;
 	int Quantity;
 	product_Node* next;
-	int stars=0;
+	int stars;
 };
 class Product
 {
@@ -37,5 +38,6 @@ public:
 	void changeQuantity(int id, int sold);
 	void search(string category);
 	void Rating();
+	
 
 };

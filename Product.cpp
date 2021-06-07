@@ -10,7 +10,7 @@ void Product::Add_product()
 	int id, seller;
 	double price;
 	string category, name;
-	product_Node* node = new product_Node;
+	product_Node* node = new product_Node();
 	product_Node* temp = head;
 	Admin admin;
 	cout << "\nEnter the product id: ";
@@ -34,7 +34,7 @@ void Product::Add_product()
 	cout << "Enter the seller id: ";
 	cin >> seller;
 	int quantity;
-	cout << "\nEnter Quantity";
+	cout << "\nEnter Quantity: ";
 	cin >> quantity;
 	cout << "\n";
 	if (admin.checkProductAtrribute(id, price, seller, quantity) == true)
@@ -94,7 +94,7 @@ void Product::search(string category)
 		if (node->Product_Category == category)
 		{
 
-			cout << node->Product_ID << "  " << node->Product_Name << "  " << node->Product_Price << "\n";
+			cout << node->Product_ID << "    " << node->Product_Name << "   " << node->Product_Price << "\n";
 
 
 		}
@@ -162,7 +162,7 @@ product_Node Product::getAllIteams(int id)
 void Product::display()
 {
 	if (head == NULL) {
-		cout << "\n\n The List Is Empty.....";
+		cout << "\n\n The List Is Empty.....\n";
 		
 	}
 	else {
@@ -284,4 +284,11 @@ void Product::changeQuantity(int id, int sold)
 		}
 		node = node->next;
 	}
+}
+
+product_Node::product_Node()
+{
+	next = NULL;
+	stars = 0;
+	Product_Price = -1;
 }

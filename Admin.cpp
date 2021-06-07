@@ -6,7 +6,9 @@ bool Admin::checkProductAtrribute(int id, float price, int seller_id, int Quanti
     return (id>0&&price>0&&seller_id>0&&Quantity>0);
 }
 
-void Admin::setProduct(Product product)
+
+
+void Admin::AdminRemove(Product& product)
 {
-    this->product = product;
+    product.remove();
 }

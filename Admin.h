@@ -6,7 +6,8 @@ class Admin
 public:
 	Product product;
 	bool checkProductAtrribute(int id, float price, int seller_id, int Quantity);	
-	void setProduct(Product product);
+	
+	void AdminRemove(Product& product);
 
 };
 

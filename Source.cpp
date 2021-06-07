@@ -17,7 +17,7 @@ void welcome()
 }
 int main()
 {
-	welcome();
+	
 		
 	Customer customer;
 	Product product;
@@ -25,10 +25,11 @@ int main()
 	seller seler;
 	Admin admin;
 	char Continue;
+	welcome();
 	while (answer != 4)
 	{
 		string name;
-		cout << "Please Enter Your Name\n";
+		cout << "Please Enter Your First Name\n";
 		cin >> name;
 		cout << "Enter Your Id\n";
 		int id;
@@ -55,6 +56,7 @@ int main()
 			string nameCategory;
 			if (ans1 == 1)
 			{
+				
 				product.display();
 			}
 			else if (ans1 == 2)
@@ -77,26 +79,37 @@ int main()
 			
 			char ans;
 			
-			do
+			if (product.categerious.size() > 0)
 			{
-				if (ans1 == 2)
+
+				do
 				{
-					product.search(nameCategory);
-				}
-				
-				cout << "Now You can add products in your cart\n";
-				cout << "please enter id and quantity of product\n";
-				int idOfProduct, quantity;
-				cin >> idOfProduct >> quantity;
-				if (cart.check_id(idOfProduct, quantity,product) == false)
-				{
-					cout << "Information Not Valid\n";
-				}
-				cout << "Do you want to continue ? Enter (y or n)\n";
-				
-				cin >> ans;
-			} 
-			while (ans!='n');
+					if (ans1 == 2)
+					{
+						product.search(nameCategory);
+					}
+					cout << "\nDo You want to buy products ? (y/n) \n";
+					cin >> ans;
+					if (ans == 'n')
+					{
+						break;
+					}
+					int idOfProduct, quantity;
+					cout << "Now You can add products in your cart\n";
+					cout << "please enter id   of product\n";
+					cin >> idOfProduct;
+					cout << "please enter quantity of product\n";
+					
+					cin >> quantity;
+					if (cart.check_id(idOfProduct, quantity, product) == false)
+					{
+						cout << "Information Not Valid\n";
+					}
+					cout << "Do you want to continue ? Enter (y or n)\n";
+
+					cin >> ans;
+				} while (ans != 'n');
+			}
 			if (cart.product_id.size() > 0)
 			{
 				cart.calculate(product);
@@ -131,7 +144,7 @@ int main()
 		}
 		else if (answer == 3&&name=="Admin"&&email=="Admin@gmail.com")
 		{
-			admin.setProduct(product);
+			
 			cout << "Enter Password\n";
 			int password;
 			cin >> password; 
@@ -148,7 +161,8 @@ int main()
 					if (ans == 1)
 					{
 
-						admin.product.remove();
+						admin.AdminRemove(product);
+						
 					}
 					else if (ans == 2)
 					{
